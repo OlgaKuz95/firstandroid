@@ -4,52 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding = "8dp">
+    android:padding="8dp"
+    tools:context=".MainActivity">
 
     <ImageView
-        android:id= "@+id/moreIv"
+        android:id="@+id/moreIv"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/avatar"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@id/avatar"
-        app:srcCompat= "@drawable/ic_baseline_more_vert_24"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/author"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_bias="0.083"
+        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="84dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="670dp"
         android:contentDescription="@string/description_post_author_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/author"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:id= "@+id/author"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/author"
         android:layout_width="0dp"
-        android:maxLines="1"
-        android:ellipsize="end"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@id/published"
         app:layout_constraintEnd_toStartOf="@id/moreIv"
-        app:layout_constraintBottom_toTopOf= "@id/published"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@sample/posts.json/data/author" />
+        tools:text="Нетология. Университет интернет-профессий" />
 
     <TextView
         android:id="@+id/published"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@id/avatar"
         app:layout_constraintEnd_toStartOf="@+id/moreIv"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintStart_toStartOf="@+id/avatar"
         app:layout_constraintTop_toBottomOf="@id/author"
-        tools:text="@sample/posts.json/data/published" />
+        tools:text="21 мая в 18.36" />
 
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="357dp"
+        android:layout_height="346dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginBottom="277dp"
+        android:ellipsize="end"
+        android:maxLines="16"
+        android:saveEnabled="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollHorizontally="false"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/author"
+        app:layout_constraintEnd_toStartOf="@id/moreIv"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintStart_toStartOf="@+id/author"
+        app:layout_constraintTop_toTopOf="@+id/author"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Привет, это новая нетология! Когда-то Нетология
+                    начиналась с интенсивов по онлайн-маркетингу. Затем
+                    появились курсы по дизайну, разработке, аналитике
+                    и управлению. Мы растём сами и помогаем расти
+                    студентам от новичков до уверенных пофессионалов.
+                    Но самое важное остается с нами: мы верим что в
+                    каждом уже есть сила, которая заставляет хотеть
+                    больше, целиться выше, бежать быстрее. Наша миссия
+                    — помочь встать на путь роста и начать цепочку
+                    перемен -> http//netolo.gy/fub" />
 
+    <ImageView
+        android:id="@+id/border"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toEndOf="@+id/border"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <ImageView
+        android:id="@+id/visib"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_visibility_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
