@@ -1,5 +1,16 @@
 <resources>
     <string name="nmedia">Nmedia!</string>
     <string name="app_name">nmedia</string>
-    <string name="description_post_author_avatar" />
+    <string name="description_post_author_avatar" translatable="false">Post author avatar</string >
+    <string name="sample_text" translatable="false">"Привет, это новая нетология! Когда-то Нетология
+                    начиналась с интенсивов по онлайн-маркетингу. Затем
+                    появились курсы по дизайну, разработке, аналитике
+                    и управлению. Мы растём сами и помогаем расти
+                    студентам от новичков до уверенных пофессионалов.
+                    Но самое важное остается с нами: мы верим что в
+                    каждом уже есть сила, которая заставляет хотеть
+                    больше, целиться выше, бежать быстрее. Наша миссия
+                    — помочь встать на путь роста и начать цепочку
+                    перемен -> http//netolo.gy/fub"</string>
+
 </resources>

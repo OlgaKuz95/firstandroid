@@ -61,62 +61,44 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="357dp"
-        android:layout_height="346dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginBottom="277dp"
+        android:layout_width="404dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="250dp"
+        android:autoLink="web"
         android:ellipsize="end"
         android:maxLines="16"
-        android:saveEnabled="false"
-        android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
-        android:scrollHorizontally="false"
-        android:textAlignment="center"
-        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/author"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/moreIv"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintStart_toStartOf="@+id/author"
         app:layout_constraintTop_toTopOf="@+id/author"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Привет, это новая нетология! Когда-то Нетология
-                    начиналась с интенсивов по онлайн-маркетингу. Затем
-                    появились курсы по дизайну, разработке, аналитике
-                    и управлению. Мы растём сами и помогаем расти
-                    студентам от новичков до уверенных пофессионалов.
-                    Но самое важное остается с нами: мы верим что в
-                    каждом уже есть сила, которая заставляет хотеть
-                    больше, целиться выше, бежать быстрее. Наша миссия
-                    — помочь встать на путь роста и начать цепочку
-                    перемен -> http//netolo.gy/fub" />
+        tools:text="@string/sample_text" />
 
     <ImageView
-        android:id="@+id/border"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/image_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/share"
+        app:layout_constraintEnd_toStartOf="@+id/visib"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/text"
-        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+        tools:src="@drawable/ic_baseline_favorite_24" />
 
     <ImageView
         android:id="@+id/share"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="30dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toEndOf="@+id/border"
-        app:layout_constraintStart_toStartOf="@+id/text"
-        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintStart_toEndOf="@+id/image_like"
+        app:layout_constraintTop_toBottomOf="@+id/text"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_share_24" />
 
@@ -125,9 +107,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintBottom_toBottomOf="@+id/share"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="@+id/text"
         app:layout_constraintTop_toTopOf="@id/avatar"
         app:layout_constraintVertical_bias="1.0"
