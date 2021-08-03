@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val post = Post(
-            getString(R.string.sample_text),
+            getString(R.string.some_name),
             false,
             false
         )
