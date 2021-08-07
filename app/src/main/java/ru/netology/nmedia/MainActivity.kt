@@ -33,5 +33,16 @@ class MainActivity : AppCompatActivity() {
         if (post.liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
 
 private fun getImageShare(post: Post) =
-    if(post.shared) R.drawable.ic_baseline_share_24 else TODO()
+    if(post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_24
 }
+ fun like_share(
+
+ ) { var like =0
+     val share =0
+
+
+     val result = when{
+      like > 10000-> "1к"
+         else -> like
+     }
+ }
