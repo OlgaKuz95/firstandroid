@@ -12,11 +12,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/author"
-        app:layout_constraintTop_toTopOf="@id/avatar"
-        app:layout_constraintVertical_bias="0.083"
+        app:layout_constraintBottom_toTopOf="@+id/author"
         app:srcCompat="@drawable/ic_baseline_more_vert_24"
         android:contentDescription="@string/description_more" />
 
@@ -24,13 +22,9 @@
         android:id="@+id/avatar"
         android:layout_width="84dp"
         android:layout_height="81dp"
-        android:layout_marginBottom="670dp"
         android:contentDescription="@string/description_post_author_avatar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/author"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintBottom_toTopOf ="@id/text"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
@@ -39,10 +33,9 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        app:layout_constraintBottom_toTopOf="@id/published"
         app:layout_constraintEnd_toStartOf="@id/moreIv"
         app:layout_constraintStart_toEndOf="@id/avatar"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/published"
         tools:text="Нетология. Университет интернет-профессий" />
 
     <TextView
@@ -51,12 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/avatar"
-        app:layout_constraintEnd_toStartOf="@+id/moreIv"
-        app:layout_constraintHorizontal_bias="0.371"
-        app:layout_constraintStart_toEndOf="@id/avatar"
-        app:layout_constraintStart_toStartOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@id/author"
+        app:layout_constraintStart_toStartOf="@id/author"
+        app:layout_constraintBottom_toTopOf ="@id/text"
         tools:text="21 мая в 18.36" />
 
 
@@ -65,13 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="web"
-        android:lineSpacingExtra="1dp"
         android:text="@string/some_name"
         android:textAlignment="textStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/author"
-        app:layout_constraintVertical_bias="0.16000003"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
+        app:layout_constraintStart_toStartOf="@id/avatar"
         tools:text="@string/some_name" />
 
 
@@ -91,9 +77,9 @@
         android:id="@+id/share"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintStart_toEndOf="@id/image_like"
         app:layout_constraintTop_toBottomOf="@+id/text"
         app:srcCompat="@drawable/ic_baseline_share_24"
         android:contentDescription="@string/description_like_visibility_share"
@@ -104,9 +90,8 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="@+id/text"
-        app:layout_constraintHorizontal_bias="0.94"
-        app:layout_constraintStart_toStartOf="@+id/text"
         app:layout_constraintTop_toBottomOf="@+id/text"
         app:srcCompat="@drawable/ic_baseline_visibility_24"
         android:contentDescription="@string/description_like_visibility_share"
