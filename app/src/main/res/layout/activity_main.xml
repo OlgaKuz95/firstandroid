@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".MainActivity">
+    tools:context="MainActivity">
 
     <ImageView
         android:id="@+id/moreIv"
@@ -14,14 +14,14 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/author"
-        app:layout_constraintBottom_toTopOf="@+id/author"
+        app:layout_constraintTop_toTopOf="@+id/author"
         app:srcCompat="@drawable/ic_baseline_more_vert_24"
         android:contentDescription="@string/description_more" />
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="84dp"
-        android:layout_height="81dp"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
         android:contentDescription="@string/description_post_author_avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf ="@id/text"
@@ -31,11 +31,13 @@
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:maxLines="1"
         app:layout_constraintEnd_toStartOf="@id/moreIv"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintBottom_toTopOf="@id/published"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Нетология. Университет интернет-профессий" />
 
     <TextView
@@ -56,8 +58,8 @@
         android:autoLink="web"
         android:text="@string/some_name"
         android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatar"
-        app:layout_constraintStart_toStartOf="@id/avatar"
         tools:text="@string/some_name" />
 
 
