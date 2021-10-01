@@ -2,6 +2,6 @@ package ru.netology.nmedia.utils
 
 object Calculator {
     fun convert(count:Int):String{
-        TODO()
+        // TODO: 31.08.2021  
     }
 }
