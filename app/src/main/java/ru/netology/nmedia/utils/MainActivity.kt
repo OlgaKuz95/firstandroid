@@ -36,13 +36,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        like?.setOnClickListener {
-            post.likedByMe = !post.likedByMe
-            val like = findViewById<ImageView>(R.id.like)
-            like.setImageResource(
-                if (post.likedByMe)R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-            )
-        }
+            like.setOnClickListener {
+                post.likedByMe = !post.likedByMe
+                val like = findViewById<ImageView>(R.id.like)
+                like.setImageResource(
+                    if (post.likedByMe)R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+                )
+            }
     }
     }
 }
