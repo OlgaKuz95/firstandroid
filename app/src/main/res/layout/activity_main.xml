@@ -75,11 +75,22 @@
         android:contentDescription="@string/description_like_visibility_share"
         />
 
+    <TextView
+        android:id="@+id/like"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/image_like"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:text="10" />
+
+
     <ImageView
         android:id="@+id/share"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@id/image_like"
         app:layout_constraintTop_toBottomOf="@+id/text"
@@ -87,15 +98,38 @@
         android:contentDescription="@string/description_like_visibility_share"
         />
 
+    <TextView
+        android:id="@+id/colshare"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/share"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:text="5" />
+
     <ImageView
         android:id="@+id/visib"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="@+id/author"
         app:layout_constraintTop_toBottomOf="@+id/text"
         app:srcCompat="@drawable/ic_baseline_visibility_24"
         android:contentDescription="@string/description_like_visibility_share"
         />
+
+    <TextView
+        android:id="@+id/colvisib"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/visib"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:text="5" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

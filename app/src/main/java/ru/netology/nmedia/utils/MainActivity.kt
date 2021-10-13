@@ -1,48 +1,49 @@
 package ru.netology.nmedia.utils
 
-import androidx.appcompat.app.AppCompatActivity
+//import kotlinx.android.synthetic.main.activity_main.*
+
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.R
-import ru.netology.nmedia.utils.Calculator
-import ru.netology.nmedia.utils.Post
+import ru.netology.nmedia.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val post = Post(
-            getString(R.string.some_name),
-            false,
-            false,
-            0,
-            0
-        )
+            id = 1,
+            author = "Нетология. Университет интернет-профессий будущего",
+            text = "Привет, это новая Нетология! Кода-то Нетология начиналась с интенс...",
+            published = "21 мая в 18.36",
+            likedByMe = false,
 
-        val likesView = findViewById<ImageView>(R.id.image_like)
-       // val likes = findViewById<TextView>(R.id.image_like)
-        likesView.setOnClickListener {
-            post.liked = !post.liked
-            if (post.liked) post.likes++ else post.likes--
-            likes.text = Calculator.convert(post.likes)
-            likesView.setImageResource(getImageResource(post))
+            )
 
-        }
-        val shareView = findViewById<ImageView>(R.id.share)
-       // val share = findViewById<TextView>(R.id.share)
-        shareView.setOnClickListener {
-            post.shared = !post.shared
-            if (post.shared) post.share++ else post.share--
-            share.text = Calculator.convert(post.share)
-            shareView.setImageResource(getImageShare(post))
+        with(binding){
+            author.text = post.author
+            published.text=post.published
+            text.text=post.text
+            if(post.likedByMe){
+                val like = findViewById<ImageView>(R.id.like)
+                like?.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }
+
+
+
+        like?.setOnClickListener {
+            post.likedByMe = !post.likedByMe
+            val like = findViewById<ImageView>(R.id.like)
+            like.setImageResource(
+                if (post.likedByMe)R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+            )
         }
     }
-
-    private fun getImageResource(post: Post) =
-        if (post.liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-
-    private fun getImageShare(post: Post) =
-        if (post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_24
+    }
 }
+
