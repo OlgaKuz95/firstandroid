@@ -2,12 +2,15 @@ package ru.netology.nmedia.utils
 
 //import kotlinx.android.synthetic.main.activity_main.*
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import android.util.Log
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,28 +25,44 @@ class MainActivity : AppCompatActivity() {
             text = "Привет, это новая Нетология! Кода-то Нетология начиналась с интенс...",
             published = "21 мая в 18.36",
             likedByMe = false,
+            shared= false,
+            count = 0,
+        )
 
-            )
-
-        with(binding){
+        with(binding) {
             author.text = post.author
-            published.text=post.published
-            text.text=post.text
-            if(post.likedByMe){
-                val like = findViewById<ImageView>(R.id.like)
-                like?.setImageResource(R.drawable.ic_baseline_favorite_24)
+            published.text = post.published
+            text.text = post.text
+            if (post.likedByMe) {
+                imageLike?.setImageResource(R.drawable.ic_baseline_favorite_24)
+                binding.likeCount.text= post.count.toString()
+
+
+            }
+
+            if (post.shared){
+                share?.setImageResource(R.drawable.ic_baseline_share_24)
             }
 
 
 
-            like.setOnClickListener {
+
+            imageLike?.setOnClickListener {
                 post.likedByMe = !post.likedByMe
-                val like = findViewById<ImageView>(R.id.like)
-                like.setImageResource(
-                    if (post.likedByMe)R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+                imageLike.setImageResource(
+                    if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
                 )
+                if (post.likedByMe) post.count++ else post.count--
             }
+            share?.setOnClickListener{
+                post.shared=!post.shared
+                share.setImageResource(if(post.shared)R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_25)
     }
-    }
+}
+
+
+}
+
+
 }
 
