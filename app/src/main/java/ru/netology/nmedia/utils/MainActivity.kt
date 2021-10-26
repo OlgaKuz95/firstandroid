@@ -1,23 +1,21 @@
 package ru.netology.nmedia.utils
 
-//import kotlinx.android.synthetic.main.activity_main.*
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import android.util.Log
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
-
+import ru.netology.nmedia.utils.Calculator
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//val result = Calculator.convert()
 
         val post = Post(
             id = 1,
@@ -25,22 +23,24 @@ class MainActivity : AppCompatActivity() {
             text = "Привет, это новая Нетология! Кода-то Нетология начиналась с интенс...",
             published = "21 мая в 18.36",
             likedByMe = false,
-            shared= false,
-            count = 0,
+            shared = false,
+            likeCount = 0,
+            colshare = 0,
+            count = 0
         )
+
 
         with(binding) {
             author.text = post.author
             published.text = post.published
             text.text = post.text
+            //likeCount.text = post.likeCount.toString()
             if (post.likedByMe) {
                 imageLike?.setImageResource(R.drawable.ic_baseline_favorite_24)
-                binding.likeCount.text= post.count.toString()
-
-
+                likeCount?.setText(R.id.likeCount)
             }
 
-            if (post.shared){
+            if (post.shared) {
                 share?.setImageResource(R.drawable.ic_baseline_share_24)
             }
 
@@ -52,17 +52,33 @@ class MainActivity : AppCompatActivity() {
                 imageLike.setImageResource(
                     if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
                 )
-                if (post.likedByMe) post.count++ else post.count--
+
+                likeCount?.setText(
+                    if (post.likedByMe) Calculator.likeCount++
+                    else Calculator.likeCount--
+                )
             }
-            share?.setOnClickListener{
-                post.shared=!post.shared
-                share.setImageResource(if(post.shared)R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_25)
+
+
+            share?.setOnClickListener {
+                post.shared = !post.shared
+                share.setImageResource(if (post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_25)
+            }
+        }
+
+
     }
-}
 
 
 }
 
 
-}
+
+
+
+
+
+
+
+
 
