@@ -1,21 +1,15 @@
 package ru.netology.nmedia.utils
 
-
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.utils.Calculator
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//val result = Calculator.convert()
 
         val post = Post(
             id = 1,
@@ -26,50 +20,41 @@ class MainActivity : AppCompatActivity() {
             shared = false,
             likeCount = 0,
             colshare = 0,
-            count = 0
         )
-
 
         with(binding) {
             author.text = post.author
             published.text = post.published
             text.text = post.text
-            //likeCount.text = post.likeCount.toString()
-            if (post.likedByMe) {
-                imageLike?.setImageResource(R.drawable.ic_baseline_favorite_24)
-                likeCount?.setText(R.id.likeCount)
-            }
+            likeCount.text = Calculator.convert(Calculator.likeCount)
+            imageLike.setImageResource(
+                if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+            )
 
             if (post.shared) {
                 share?.setImageResource(R.drawable.ic_baseline_share_24)
             }
-
-
-
 
             imageLike?.setOnClickListener {
                 post.likedByMe = !post.likedByMe
                 imageLike.setImageResource(
                     if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
                 )
-
-                likeCount?.setText(
-                    if (post.likedByMe) Calculator.likeCount++
-                    else Calculator.likeCount--
-                )
+                if (post.likedByMe) Calculator.likeCount++ else Calculator.likeCount--
+                likeCount.text = Calculator.convert(Calculator.likeCount)
             }
 
 
             share?.setOnClickListener {
                 post.shared = !post.shared
-                share.setImageResource(if (post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_25)
+                share.setImageResource(if (post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_24)
+
+                if (post.shared) Calculator.shareCount++
+                shareCount.text = Calculator.convert(Calculator.shareCount)
+
             }
         }
-
-
     }
-
-
 }
 
 

@@ -1,5 +1,7 @@
 package ru.netology.nmedia.utils
 
+import kotlin.Int
+
 data class Post(
     val id:Long,
     val author: String,
@@ -7,9 +9,9 @@ data class Post(
     val published:String,
     var likedByMe: Boolean=false,
     var shared:Boolean,
-    val likeCount:Int,
-    val colshare :Int,
-    val count:Int,
+    val likeCount: Int,
+    val colshare : Int,
+    //val count:Int,
 
 
    // var colshare:Int,
