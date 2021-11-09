@@ -18,22 +18,20 @@ class MainActivity : AppCompatActivity() {
             published = "21 мая в 18.36",
             likedByMe = false,
             shared = false,
-            likeCount = 0,
-            colshare = 0,
-        )
+            )
 
         with(binding) {
             author.text = post.author
             published.text = post.published
             text.text = post.text
-            likeCount.text = Calculator.convert(Calculator.likeCount)
+            //likeCount.text = Calculator.convert(Calculator.likeCount)
             imageLike.setImageResource(
                 if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
             )
 
-            if (post.shared) {
-                share?.setImageResource(R.drawable.ic_baseline_share_24)
-            }
+            shareCount.text = Calculator.convert(Calculator.shareCount)
+                share.setImageResource( R.drawable.ic_baseline_share_24 )
+
 
             imageLike?.setOnClickListener {
                 post.likedByMe = !post.likedByMe
@@ -47,13 +45,14 @@ class MainActivity : AppCompatActivity() {
 
             share?.setOnClickListener {
                 post.shared = !post.shared
-                share.setImageResource(if (post.shared) R.drawable.ic_baseline_share_24 else R.drawable.ic_baseline_share_24)
+                share.setImageResource( R.drawable.ic_baseline_share_24 )
 
                 if (post.shared) Calculator.shareCount++
                 shareCount.text = Calculator.convert(Calculator.shareCount)
-
             }
         }
+
+
     }
 }
 

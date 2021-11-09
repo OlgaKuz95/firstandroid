@@ -20,11 +20,12 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
         android:contentDescription="@string/description_post_author_avatar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf ="@id/text"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@id/moreIv"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintBottom_toTopOf="@id/published"
@@ -46,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="8dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/author"
         app:layout_constraintBottom_toTopOf ="@id/text"
         tools:text="21 мая в 18.36" />
@@ -55,6 +58,7 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="13sp"
         android:autoLink="web"
         android:text="@string/some_name"
         android:textAlignment="textStart"
@@ -81,6 +85,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/imageLike"
         app:layout_constraintTop_toBottomOf="@+id/text"
         android:text= "@string/_0"
@@ -94,11 +99,11 @@
         android:layout_height="24dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/description_like_visibility_share"
         app:layout_constraintStart_toEndOf="@id/imageLike"
         app:layout_constraintTop_toBottomOf="@+id/text"
         app:srcCompat="@drawable/ic_baseline_share_24"
-        android:contentDescription="@string/description_like_visibility_share"
-        />
+        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/shareCount"
@@ -106,6 +111,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toBottomOf="@+id/text"
         tools:text="0" />
@@ -128,6 +134,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/visib"
         app:layout_constraintTop_toBottomOf="@+id/text"
         tools:text="5" />
