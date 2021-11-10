@@ -9,11 +9,4 @@ data class Post(
     val published:String,
     var likedByMe: Boolean=false,
     var shared:Boolean,
-   // val likeCount: Int,
-    //val colshare : Int,
-  //  var moreIv:Boolean = false,
-  //  var  count:Int,
-
-   // var colshare:Int,
-
     )

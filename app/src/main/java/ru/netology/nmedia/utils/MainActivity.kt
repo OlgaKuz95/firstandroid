@@ -24,13 +24,12 @@ class MainActivity : AppCompatActivity() {
             author.text = post.author
             published.text = post.published
             text.text = post.text
-            //likeCount.text = Calculator.convert(Calculator.likeCount)
+            likeCount.text = Calculator.convert(Calculator.likeCount)
+            shareCount.text = Calculator.convert(Calculator.shareCount)
+
             imageLike.setImageResource(
                 if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
             )
-
-            shareCount.text = Calculator.convert(Calculator.shareCount)
-                share.setImageResource( R.drawable.ic_baseline_share_24 )
 
 
             imageLike?.setOnClickListener {
@@ -44,11 +43,14 @@ class MainActivity : AppCompatActivity() {
 
 
             share?.setOnClickListener {
-                post.shared = !post.shared
-                share.setImageResource( R.drawable.ic_baseline_share_24 )
+              post.shared = !post.shared
+               share.setImageResource(
+                   if (post.shared)R.drawable.ic_baseline_share_24 else  R.drawable.ic_baseline_share_24 )
 
-                if (post.shared) Calculator.shareCount++
+                if (post.shared) Calculator.shareCount++ else
+                    share.setEnabled(false)
                 shareCount.text = Calculator.convert(Calculator.shareCount)
+
             }
         }
 
