@@ -1,12 +1,11 @@
 package ru.netology.nmedia.utils
 
-import kotlin.Int
 
 
 object Calculator {
 
-    var likeCount = 0
-    var shareCount = 0
+
+
 
     fun convert(count: Int): String {
         return when {
