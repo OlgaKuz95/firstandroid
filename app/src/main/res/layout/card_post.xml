@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/moreIv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/author"
+        app:layout_constraintTop_toTopOf="@+id/author"
+        app:srcCompat="@drawable/ic_baseline_more_vert_24"
+        android:contentDescription="@string/description_more" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/description_post_author_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@id/moreIv"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintBottom_toTopOf="@id/published"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Нетология. Университет интернет-профессий" />
+
+    <TextView
+        android:id="@+id/published"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/author"
+        app:layout_constraintBottom_toTopOf ="@id/text"
+        tools:text="21 мая в 18.36" />
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:layout_marginStart="8dp"
+        android:text="@string/some_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
+        tools:text="@string/some_name" />
+
+
+    <ImageView
+        android:id="@+id/imageLike"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:src="@drawable/ic_baseline_favorite_24"
+        android:contentDescription="@string/description_like_visibility_share"
+        />
+
+    <TextView
+        android:id="@+id/likeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        android:paddingEnd="15dp"
+        app:layout_constraintStart_toEndOf="@id/imageLike"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        android:text= "@string/_0"
+        tools:text="@string/_0"
+        tools:ignore="RtlSymmetry" />
+
+
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/description_like_visibility_share"
+        app:layout_constraintStart_toEndOf="@id/imageLike"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:srcCompat="@drawable/ic_baseline_share_24"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/shareCount"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/share"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:text="@string/_o0"
+        android:text= "@string/_o0"
+        />
+
+    <ImageView
+        android:id="@+id/visib"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/author"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:srcCompat="@drawable/ic_baseline_visibility_24"
+        android:contentDescription="@string/description_like_visibility_share"
+        />
+
+    <TextView
+        android:id="@+id/colvisib"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/visib"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        tools:text="5" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
