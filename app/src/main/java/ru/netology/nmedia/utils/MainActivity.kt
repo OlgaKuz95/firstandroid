@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.utils.adapter.ActionListener
 import ru.netology.nmedia.utils.adapter.PostsAdapter
 import ru.netology.nmedia.utils.viewmodd.PostViewModel
 
@@ -14,10 +15,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel:PostViewModel by viewModels()
-        val adapter = PostsAdapter(onLikeListener = {
-            viewModel.likeById(it.id)
-        },onShareListener = {
-            viewModel.share(it.id)
+        val adapter = PostsAdapter(object: ActionListener {
+            override fun onLike(post: Post) {
+                viewModel.likeById(post.id)
+            }
+            override fun   onShare(post: Post) {
+                viewModel.share(post.id)
+            }
+
         }
 
             )

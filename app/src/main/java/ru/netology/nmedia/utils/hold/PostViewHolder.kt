@@ -4,15 +4,13 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.utils.Post
-import ru.netology.nmedia.utils.adapter.OnLikeListener
-import ru.netology.nmedia.utils.adapter.OnShareListener
+import ru.netology.nmedia.utils.adapter.ActionListener
+
 
 class PostViewHolder(
     private val binding: CardPostBinding,
-    private val onLikeListener: OnLikeListener,
-    private val onShareListener: OnShareListener
-
-): RecyclerView.ViewHolder(binding.root){
+    private val actionListener: ActionListener,
+    ): RecyclerView.ViewHolder(binding.root){
     fun bind(post: Post){
         binding.apply {
             author.text = post.author
@@ -24,10 +22,10 @@ class PostViewHolder(
            share.setImageResource(R.drawable.ic_baseline_share_24)
 
             imageLike.setOnClickListener{
-               onLikeListener(post)
+                actionListener.onLike(post)
             }
            share.setOnClickListener{
-                onShareListener(post)
+               actionListener.onShare(post)
            }
         }
     }
