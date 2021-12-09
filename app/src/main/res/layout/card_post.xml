@@ -6,16 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/moreIv"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/author"
-        app:layout_constraintTop_toTopOf="@+id/author"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24"
-        android:contentDescription="@string/description_more" />
 
     <ImageView
         android:id="@+id/avatar"
@@ -35,7 +25,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="13sp"
-        app:layout_constraintEnd_toStartOf="@id/moreIv"
+        app:layout_constraintEnd_toStartOf="@id/menu"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintBottom_toTopOf="@id/published"
         app:layout_constraintTop_toTopOf="parent"
@@ -139,6 +129,22 @@
         app:layout_constraintStart_toEndOf="@+id/visib"
         app:layout_constraintTop_toBottomOf="@+id/text"
         tools:text="5" />
+
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/author"
+        app:layout_constraintTop_toTopOf="@+id/author"
+        app:srcCompat="@drawable/ic_baseline_more_vert_24"
+        android:contentDescription="@string/description_more" />
+
+
+
+
+
 
 
 

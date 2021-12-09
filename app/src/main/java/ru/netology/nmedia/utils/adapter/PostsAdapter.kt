@@ -9,6 +9,9 @@ import ru.netology.nmedia.utils.hold.PostViewHolder
 interface ActionListener {
     fun onLike(post: Post){}
     fun onShare(post: Post){}
+    fun onRemove(post:Post){}
+    fun onEdit(post:Post){}
+    fun onCancelEdit(post:Post){}
 }
 
 
