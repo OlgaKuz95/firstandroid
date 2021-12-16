@@ -43,6 +43,7 @@ class PostViewHolder(
                                 actionListener.onCancelEdit(post)
                                 true
                             }
+
                             else -> false
                         }
                     }

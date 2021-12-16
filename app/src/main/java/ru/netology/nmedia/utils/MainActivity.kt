@@ -2,13 +2,11 @@ package ru.netology.nmedia.utils
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.INVISIBLE
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.GONE
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.card_post.*
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.utils.adapter.ActionListener
 import ru.netology.nmedia.utils.adapter.PostsAdapter
@@ -38,6 +36,8 @@ class MainActivity : AppCompatActivity() {
                 viewModel.removeById(post.id)
             }
 
+
+
         }
 
             )
@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.edited.observe(this){post ->
           if(post.id == 0L){
             //TODO  set visibility GONE (INVISIBLE) for cancel button
-              group.visibility = View.GONE
               group.visibility = View.INVISIBLE
               return@observe
           }
@@ -64,9 +63,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+binding.cancelButton.setOnClickListener {
 
+    viewModel.cancelEdit()
+    toolsTop.visibility = View.GONE
+
+
+}
         //TODO setOnClickListener for cancel button
-        viewModel.cancelEdit()
 
         binding.save.setOnClickListener {
             with(binding.content){

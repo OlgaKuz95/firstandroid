@@ -31,7 +31,6 @@ fun save(){
     }
     fun cancelEdit() {
         edited.value = empty
-
     }
 
     fun changeContent(content:String){
