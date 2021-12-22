@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
 binding.cancelButton.setOnClickListener {
 
     viewModel.cancelEdit()
-    toolsTop.visibility = View.GONE
 
 
 }
