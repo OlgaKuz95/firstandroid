@@ -19,12 +19,13 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel:PostViewModel by viewModels()
-        val adapter = PostsAdapter(object: ActionListener {
+        val viewModel: PostViewModel by viewModels()
+        val adapter = PostsAdapter(object : ActionListener {
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
             }
-            override fun   onShare(post: Post) {
+
+            override fun onShare(post: Post) {
                 viewModel.share(post.id)
             }
 
@@ -37,24 +38,24 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-
         }
 
-            )
+        )
 
         binding.list.adapter = adapter
         viewModel.data.observe(
-            this){
-            posts -> adapter.submitList(posts)
+            this
+        ) { posts ->
+            adapter.submitList(posts)
 
+        }
+        viewModel.edited.observe(this) { post ->
+            if (post.id == 0L) {
+                //TODO  set visibility GONE (INVISIBLE) for cancel button
+                group.visibility = View.INVISIBLE
+                return@observe
             }
-        viewModel.edited.observe(this){post ->
-          if(post.id == 0L){
-            //TODO  set visibility GONE (INVISIBLE) for cancel button
-              group.visibility = View.INVISIBLE
-              return@observe
-          }
-            with(binding.content){
+            with(binding.content) {
                 requestFocus()
                 setText(post.content)
                 //TODO set visibility for cancel button
@@ -63,17 +64,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-binding.cancelButton.setOnClickListener {
-
-    viewModel.cancelEdit()
-
-
-}
+        binding.cancelButton.setOnClickListener {
+            viewModel.cancelEdit()
+        }
         //TODO setOnClickListener for cancel button
 
         binding.save.setOnClickListener {
-            with(binding.content){
-                if (text.isNullOrBlank()){
+            with(binding.content) {
+                if (text.isNullOrBlank()) {
                     Toast.makeText(
                         this@MainActivity,
                         "Content can't be empty",
@@ -91,8 +89,7 @@ binding.cancelButton.setOnClickListener {
         }
 
 
-        }
-
+    }
 
 
 }

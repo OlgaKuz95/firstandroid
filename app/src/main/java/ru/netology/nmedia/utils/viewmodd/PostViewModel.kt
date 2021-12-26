@@ -6,7 +6,7 @@ import ru.netology.nmedia.utils.Post
 import ru.netology.nmedia.utils.repository.PostRepository
 import ru.netology.nmedia.utils.repository.PostRepositoryInMemoryImpl
 
-private val empty = Post(
+val empty = Post(
     id = 0,
     content = "",
     author = "",
@@ -24,12 +24,13 @@ fun save(){
     edited.value?.let{
         repository.save(it)
     }
-    edited.value = empty
+  edited.value = empty
 }
     fun edit(post: Post){
         edited.value = post
     }
-    fun cancelEdit() {
+    fun cancelEdit(){
+
         edited.value = empty
     }
 
