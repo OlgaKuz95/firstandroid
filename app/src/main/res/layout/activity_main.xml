@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".utils.MainActivity">
+    tools:context=".utils.activity.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -13,12 +13,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_post" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/toolsTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="content,save" />
 
 
     <androidx.constraintlayout.widget.Group
@@ -27,18 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:orientation="horizontal"
-        app:constraint_referenced_ids="create,edit_text,cancel_button,toolsTop,content,save "       />
+        app:constraint_referenced_ids="create,edit_text,cancel_button"/>
 
 
 
-        <ImageView
+
+    <ImageView
             android:id="@+id/create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_create_24"
             android:contentDescription="@string/todo"
             app:layout_constraintBottom_toTopOf="@id/content"
-            />
+        tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/edit_text"
@@ -65,13 +60,10 @@
             />
 
 
-
-
     <EditText
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autoLink="web"
         android:background="@android:color/transparent"
         android:hint="@string/post_text"
         android:importantForAutofill="no"
@@ -80,21 +72,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolsTop" />
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        app:layout_constraintVertical_bias="1.0" />
 
-
-    <ImageButton
-        android:id="@+id/save"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id = "@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/likes"
-        android:minWidth="32dp"
-        android:minHeight="32dp"
+        android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/content"
-        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
-
+        app:srcCompat="@drawable/ic_add_24dp"
+        android:contentDescription="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

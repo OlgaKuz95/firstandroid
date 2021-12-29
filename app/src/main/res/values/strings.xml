@@ -15,6 +15,9 @@
     <string name="cancelButton">TODO</string>
     <string name="edit">Edit Message </string>
     <string name="todo">TODO</string>
+    <string name="chooser_share_post">Share post</string>
+    <string name="error_empty_content" />
+    <string name="save" />
 
 
 </resources>

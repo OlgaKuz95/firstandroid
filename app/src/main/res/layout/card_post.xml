@@ -49,63 +49,47 @@
         android:layout_height="wrap_content"
         android:autoLink="web"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/some_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatar"
         tools:text="@string/some_name" />
 
 
-    <ImageView
-        android:id="@+id/imageLike"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/text"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        tools:src="@drawable/ic_baseline_favorite_24"
-        android:contentDescription="@string/description_like_visibility_share"
-        />
-
-    <TextView
-        android:id="@+id/likeCount"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like"
+        style="@style/Widget.AppTheme.LikeCheckBox"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        android:paddingEnd="15dp"
-        app:layout_constraintStart_toEndOf="@id/imageLike"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:contentDescription="@string/likes"
+        android:minHeight="48dp"
+        app:icon="@drawable/ic_like_24dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text"
-        android:text= "@string/_0"
-        tools:text="@string/_0"
-        tools:ignore="RtlSymmetry" />
+        tools:checked="false"
+        tools:text="@string/_0" />
 
-
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share"
+        style="@style/Widget.AppTheme.ShareOnlyBox"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:checkable="true"
         android:contentDescription="@string/description_like_visibility_share"
-        app:layout_constraintStart_toEndOf="@id/imageLike"
+        android:minHeight="48dp"
+        app:icon="@drawable/ic_baseline_share_24"
+        app:layout_constraintStart_toEndOf="@id/like"
         app:layout_constraintTop_toBottomOf="@+id/text"
-        app:srcCompat="@drawable/ic_baseline_share_24"
-        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+        tools:checked="false"
+        tools:text="@string/_0" />
 
-    <TextView
-        android:id="@+id/shareCount"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/share"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        tools:text="@string/_o0"
-        android:text= "@string/_o0"
-        />
+
+
+
+
+
+
 
     <ImageView
         android:id="@+id/visib"
@@ -130,18 +114,22 @@
         app:layout_constraintTop_toBottomOf="@+id/text"
         tools:text="5" />
 
-    <ImageButton
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:contentDescription="@string/description_more"
+        android:minHeight="48dp"
+        app:icon="@drawable/ic_baseline_more_vert_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/author"
         app:layout_constraintTop_toTopOf="@+id/author"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24"
-        android:contentDescription="@string/description_more" />
-
-
+        tools:checked="false"
+         />
 
 
 

@@ -17,10 +17,8 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             text.text = post.content
-            imageLike.setImageResource(
-                if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-            )
-            share.setImageResource(R.drawable.ic_baseline_share_24)
+            like.isChecked = post.likedByMe
+            share.isChecked = post.SharedByMe
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -35,11 +33,8 @@ class PostViewHolder(
                                 actionListener.onEdit(post)
                                 true
                             }
-                            R.id.imageLike -> {
-                                actionListener.onLike(post)
-                                true
-                            }
-                            R.id.cancel_button ->{
+
+                            R.id.cancel_button -> {
                                 actionListener.onCancelEdit(post)
                                 true
                             }
@@ -51,7 +46,7 @@ class PostViewHolder(
             }
 
 
-            imageLike.setOnClickListener {
+            like.setOnClickListener {
                 actionListener.onLike(post)
             }
             share.setOnClickListener {
