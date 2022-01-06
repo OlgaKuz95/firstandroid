@@ -85,12 +85,6 @@
         tools:text="@string/_0" />
 
 
-
-
-
-
-
-
     <ImageView
         android:id="@+id/visib"
         android:layout_width="24dp"

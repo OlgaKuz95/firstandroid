@@ -30,6 +30,14 @@ class MainActivity : AppCompatActivity() {
                 viewModel.save()
             }
         }
+
+        val newPostEdited = registerForActivityResult(NewPostContractEdited()){
+            it?.let {
+                viewModel.changeContent(it)
+                viewModel.save()
+            }
+        }
+
         val adapter = PostsAdapter(object : ActionListener {
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
@@ -38,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             override fun onShare(post: Post) {
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
-                    type = "text/plain"
+                    type = "*/*"
                     putExtra(Intent.EXTRA_TEXT, post.content)
                 }
                 val shareIntent = Intent.createChooser(intent, getString(R.string.chooser_share_post))
@@ -46,8 +54,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
-                viewModel.edit(post)
-            }
+                val intent = Intent().apply {
+                    action = Intent.ACTION_EDIT
+                    type = "*/*"
+                    putExtra(Intent.EXTRA_TEXT, post.content)
+                }
+                val editIntent = Intent.createChooser(intent, getString(R.string.chooser_edit_post))
+                startActivity(editIntent)            }
 
             override fun onRemove(post: Post) {
                 viewModel.removeById(post.id)
@@ -68,13 +81,15 @@ class MainActivity : AppCompatActivity() {
             if (post.id == 0L) {
                 //TODO  set visibility GONE (INVISIBLE) for cancel button
                 group.visibility = View.INVISIBLE
+
                 return@observe
             }
             with(binding.content) {
+                newPostEdited.launch()
                 requestFocus()
                 setText(post.content)
                 //TODO set visibility for cancel button
-                group.visibility = View.VISIBLE
+               //group.visibility = View.VISIBLE
             }
         }
 
@@ -88,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         binding.save.setOnClickListener {
             newPostLauncher.launch()
         }
+
 
       /*  binding.save.setOnClickListener {
             with(binding.content) {
