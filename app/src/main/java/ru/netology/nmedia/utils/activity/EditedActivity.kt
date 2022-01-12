@@ -34,9 +34,10 @@ class EditedActivity : AppCompatActivity() {
     }
 
 }}
-class NewPostContractEdited : ActivityResultContract<Unit, String?>() {
-    override fun createIntent(context: Context, input: Unit): Intent =
+class NewPostContractEdited : ActivityResultContract<String, String?>() {
+    override fun createIntent(context: Context, input: String): Intent =
         Intent(context, NewPostActivity::class.java)
+            .putExtra(Intent.EXTRA_TEXT, input)
 
 
     override fun parseResult(resultCode: Int, intent: Intent?): String? {

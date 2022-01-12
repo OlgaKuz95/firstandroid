@@ -54,13 +54,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
-                val intent = Intent().apply {
-                    action = Intent.ACTION_EDIT
-                    type = "*/*"
-                    putExtra(Intent.EXTRA_TEXT, post.content)
-                }
-                val editIntent = Intent.createChooser(intent, getString(R.string.chooser_edit_post))
-                startActivity(editIntent)            }
+                viewModel.edit(post)
+                newPostEdited.launch(post.content)        }
 
             override fun onRemove(post: Post) {
                 viewModel.removeById(post.id)
@@ -85,11 +80,10 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
             with(binding.content) {
-                newPostEdited.launch()
                 requestFocus()
                 setText(post.content)
                 //TODO set visibility for cancel button
-               //group.visibility = View.VISIBLE
+               group.visibility = View.VISIBLE
             }
         }
 

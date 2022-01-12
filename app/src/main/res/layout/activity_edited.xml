@@ -28,11 +28,16 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id = "@+id/saveEdited"
+        android:id="@+id/saveEdited"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/save"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_add_24dp"
-        android:contentDescription="@string/save" />
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
