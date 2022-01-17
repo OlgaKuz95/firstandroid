@@ -18,7 +18,6 @@ class PostViewHolder(
             published.text = post.published
             text.text = post.content
             like.isChecked = post.likedByMe
-            share.isChecked = post.SharedByMe
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
