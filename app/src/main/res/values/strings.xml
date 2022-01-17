@@ -16,9 +16,9 @@
     <string name="edit">Edit Message </string>
     <string name="todo">TODO</string>
     <string name="chooser_share_post">Share post</string>
-    <string name="error_empty_content" />
-    <string name="save" />
-    <string name="chooser_edit_post" />
+    <string name="error_empty_content">error_empty_content</string >
+    <string name="save"> save </string>
+    <string name="chooser_edit_post"> chooser_edit_post</string>
 
 
 </resources>
