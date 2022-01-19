@@ -8,6 +8,7 @@ import android.widget.Toast
 import android.content.Context
 import androidx.activity.result.contract.ActivityResultContract
 import kotlinx.android.synthetic.main.activity_edited.*
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.databinding.ActivityEditedBinding
 
 class EditedActivity : AppCompatActivity() {
@@ -15,6 +16,8 @@ class EditedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityEditedBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         binding.saveEdited.setOnClickListener{
         val text = binding.content.text.toString()
@@ -28,7 +31,7 @@ class EditedActivity : AppCompatActivity() {
         }
 
         else {
-            setResult(RESULT_OK, Intent().apply { putExtra(Intent.EXTRA_TEXT, text) })
+            setResult(RESULT_OK, Intent().apply { putExtra(Intent.EXTRA_TEXT,text  )})
         }
         finish()
     }

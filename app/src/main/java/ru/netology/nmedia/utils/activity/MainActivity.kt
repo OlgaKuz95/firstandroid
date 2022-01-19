@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
-                newPostEdited.launch(post.content)        }
+                newPostEdited.launch(post.content)
+                }
 
             override fun onRemove(post: Post) {
                 viewModel.removeById(post.id)
@@ -97,7 +98,6 @@ class MainActivity : AppCompatActivity() {
         binding.save.setOnClickListener {
             newPostLauncher.launch()
         }
-
 
       /*  binding.save.setOnClickListener {
             with(binding.content) {
