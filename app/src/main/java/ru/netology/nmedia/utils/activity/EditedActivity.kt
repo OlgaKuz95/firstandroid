@@ -39,7 +39,7 @@ class EditedActivity : AppCompatActivity() {
 }}
 class NewPostContractEdited : ActivityResultContract<String, String?>() {
     override fun createIntent(context: Context, input: String): Intent =
-        Intent(context, NewPostActivity::class.java)
+        Intent(context, EditedActivity::class.java)
             .putExtra(Intent.EXTRA_TEXT, input)
 
 
