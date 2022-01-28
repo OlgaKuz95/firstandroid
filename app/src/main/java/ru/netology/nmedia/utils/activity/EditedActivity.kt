@@ -17,7 +17,7 @@ class EditedActivity : AppCompatActivity() {
         val binding = ActivityEditedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.content.setText(intent.getStringExtra(Intent.EXTRA_TEXT))
 
         binding.saveEdited.setOnClickListener{
         val text = binding.content.text.toString()

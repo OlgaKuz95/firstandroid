@@ -12,15 +12,8 @@
         <activity
             android:name=".utils.activity.EditedActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND " />
+            android:windowSoftInputMode="adjustResize"/>
 
-                <action android:name="android.intent.action.EDIT " />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="*/*" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".utils.activity.NewPostActivity"
             android:exported="true"
