@@ -1,5 +1,6 @@
 package ru.netology.nmedia.utils.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val preferens = getPreferences(Context.MODE_PRIVATE)
+        preferens.edit().apply { putString("key", "value")
+        commit()}
 
         val viewModel: PostViewModel by viewModels()
         val newPostLauncher = registerForActivityResult(NewPostContract()) {
